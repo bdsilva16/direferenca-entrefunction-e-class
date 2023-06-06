@@ -8,7 +8,7 @@ const mensagem = "Function Component"
 export default function App() {
   return (
     <View style={styles.container}>
-      <ClassComponent />
+      <ClassComponent mensagem='Class Component'/>
       <FunctionComponent textoProps={mensagem} />
     </View>
   );
@@ -21,7 +21,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    
 
   },
 });
