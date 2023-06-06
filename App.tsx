@@ -3,13 +3,13 @@ import ClassComponent from './src/class-component';
 import FunctionComponent from './src/function-component';
 
 
-
+const mensagem = "Function Component"
 
 export default function App() {
   return (
     <View style={styles.container}>
       <ClassComponent />
-      <FunctionComponent />
+      <FunctionComponent textoProps={mensagem} />
     </View>
   );
 }
@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    
 
   },
 });

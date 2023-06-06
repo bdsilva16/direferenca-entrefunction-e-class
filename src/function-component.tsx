@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { View, Text, StyleSheet, Button } from "react-native";
+import { View, Text, StyleSheet, Button, TouchableOpacity } from "react-native";
 
 
-export default function FunctionComponent() {
+export default function FunctionComponent(props) {
 
     const [contador, setContador] = useState(0)
-    
+
 
     const increment = () => {
         setContador(contador + 1);
@@ -17,22 +17,52 @@ export default function FunctionComponent() {
     }
 
     return (
-        <View>
-            <Text style={{justifyContent:'center',fontSize:80}}>{contador} </Text>
+        <View style={styles.container}>
+            <Text style={styles.text}>
 
-            <Button title="Reset" onPress={reset}></Button>
-            <Button title="clique" onPress={increment} ></Button>
+                {props.textoProps}
+            </Text>
+
+            <Text style={styles.letraMaior}>{contador} </Text>
+
+            <TouchableOpacity style={styles.button} onPress={reset}>
+                <Text style={styles.buttonText}>Reset</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.button} onPress={increment}>
+                <Text style={styles.buttonText}>Clique</Text>
+            </TouchableOpacity>
+
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-    container:{
+    container: {
+        margin: 100
 
     },
 
     letraMaior: {
-        fontSize: 10
-    }
+        fontSize: 80,
+        textAlign: "center"
+    },
 
-})
+    text: {
+        fontSize: 20
+    },
+    button: {
+        backgroundColor: '#f4511e',
+        borderRadius: 5,
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        marginTop: 10,
+    },
+    buttonText: {
+        color: 'white',
+        fontSize: 18,
+        fontWeight: 'bold',
+        textAlign: 'center',
+    },
+});
+

@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Button } from "react-native";
+import { View, Text, Button, StyleSheet, TouchableOpacity } from "react-native";
 
 
 interface Props {
@@ -26,13 +26,35 @@ export default class ClassComponent extends React.Component<Props, State>{
     render() {
         return (
             <View>
-                <Text style={{fontSize:50}}>{this.state.contador} </Text>
-                <Button title="Clique!" onPress={() =>{
-                    this.increment();
-                }}></Button>
-                
+                <Text style={styles.text}>{this.state.contador} </Text>
+                <TouchableOpacity style={styles.button} onPress={() => { this.increment(); }}>
+                    <Text style={styles.buttonText}>Clique</Text>
+                </TouchableOpacity>
             </View>
         );
     };
 
 }
+const styles = StyleSheet.create({
+    text: {
+        fontSize: 80,
+        alignItems: 'center',
+        justifyContent: 'center',
+        textAlign: "center"
+
+    },
+    button: {
+        backgroundColor: '#f4511e',
+        borderRadius: 5,
+        paddingVertical: 20,
+        paddingHorizontal: 40,
+        marginTop: 10,
+    },
+    buttonText: {
+        color: 'white',
+        fontSize: 18,
+        fontWeight: 'bold',
+        textAlign: 'center',
+    },
+})
+// onPress={() =>{this.increment();}}
